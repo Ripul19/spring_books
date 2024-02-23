@@ -1,0 +1,4 @@
+Book1, Author1, 20-02-2024, 300
+Book2, Author2, 20-02-2024, 250
+Book3, Author3, 20-02-2024, 400
+Book4, Author4, 20-02-2024, 450
