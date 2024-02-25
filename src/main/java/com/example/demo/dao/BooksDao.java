@@ -39,14 +39,14 @@ public class BooksDao {
         List<String> bookNames = new ArrayList<>();
 
         for(Book book : books){
-            bookNames.add(book.getBookName());
+            bookNames.add(book.bookName());
         }
         return bookNames;
     }
 
     public Book bookDetails(String bookName) {
         return books.stream()
-                .filter(item -> item.getBookName().equals(bookName))
+                .filter(item -> item.bookName().equals(bookName))
                 .findFirst()
                 .orElse(null);
     }
