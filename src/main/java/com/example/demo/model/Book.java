@@ -1,12 +1,43 @@
 package com.example.demo.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-public record Book(String bookName, String author, String date, String pages) {
-    public Book(@JsonProperty("bookName") String bookName, @JsonProperty("author") String author, @JsonProperty("date") String date, @JsonProperty("pages") String pages) {
-        this.bookName = bookName;
-        this.author = author;
-        this.date = date;
-        this.pages = pages;
-    }
+import java.util.Date;
+import java.util.List;
+
+@Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "books")
+public class Book {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "book_name")
+    @NotBlank
+    private String bookName;
+
+    @Column
+    @NotBlank
+    private String author;
+
+    @Column
+    @NotNull
+    private Date date;
+
+    @Column
+    @NotEmpty
+    private int pages;
+
 }
